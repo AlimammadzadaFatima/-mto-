@@ -1,0 +1,27 @@
+﻿@using ImtahanaHazrlg.Models
+@model Team
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="container">
+    <div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text"><strong>FullName:</strong> @Model.FullName</p>
+                <p class="card-text"><strong>Profession:</strong> @Model.Profession</p>
+                <img width="100" src="~/uploads/teams/@Model.Image"/>
+                <form method="post" asp-action="Delete">
+                    <h3>Silmek isteyirsiniz mi?</h3>
+                    <input name="Id" value="@Model.Id" type="hidden">
+                    <button type="submit" class="btn btn-primary">He</button>
+                    <button type="submit" asp-action="index" asp-controller="team" class="btn btn-primary">Yox</button>
+                </form>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

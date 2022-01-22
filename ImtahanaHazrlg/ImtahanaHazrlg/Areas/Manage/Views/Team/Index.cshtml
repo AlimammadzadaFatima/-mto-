@@ -1,0 +1,34 @@
+﻿@model List<Team>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+<a asp-action="create" class="btn btn-primary">Create</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">FullName</th>
+            <th scope="col">Profession</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+        <tr>
+            <th scope="row">@count</th>
+            <td>@item.FullName</td> 
+            <td> <img width="100" src="~/uploads/teams/@item.Image"/></td>
+            <td>@item.Profession</td>
+            <td>
+                <a asp-action="edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                <a asp-action="delete" asp-route-id="@item.Id" class="btn btn-danger ">Delete</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>
